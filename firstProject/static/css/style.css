@@ -1,0 +1,10 @@
+/* CSS Code */
+h1, p {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+ 
+body {
+    background: linear-gradient(linen, limegreen);
+}
