@@ -1,0 +1,22 @@
+/* CSS code */
+* {
+    box-sizing: border-box;
+}
+
+
+p {
+    background-color: rgb(247, 181, 181);
+}
+
+#pnjb {
+    color: red;
+}
+
+.dark {
+    background-color: black;
+    color: skyblue;
+}
+
+.itlc {
+    font-style: italic;
+}

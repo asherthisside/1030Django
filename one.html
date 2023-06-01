@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Overview</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<style>
+		body {
+			/* background: rebeccapurple; */
+			background: url('Projects/companyPortfolio/static/img/slide/slide-17.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* Solid color | Image | Gradient */
+
+			background: linear-gradient(lime, linen);
+		}
+
+		p {
+			font-size: 24px;
+			color: red;
+			background-color: rgba(255, 255, 255, 0.65);
+		}
+	</style>
+</head>
+<body>
+    <!-- Headings: 6 types of headings | Starting from h1 to h6 -->
+    <h1>Introduction to HTML</h1>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores doloremque mollitia earum! <b>This is bold text</b> <br>Excepturi quam mollitia minus, exercitationem recusandae debitis itaque repellendus cupiditate a ducimus doloribus ut possimus <i>This is Italic text</i> consectetur magnam, cum porro ab, architecto saepe animi. Iste consectetur at unde reprehenderit vel laborum ea natus voluptatum eveniet culpa error, debitis, repellendus omnis alias! 	Quidem optio deleniti expedita quod distinctio libero aperiam architecto rem provident labore dolor ad alias, <u>Underlined text</u> inventore facilis consequuntur nisi molestiae <b><u><i>THIS IS MIXED-STYLED TEXT</i></u></b> <br>	laboriosam quis animi, enim rerum ullam, doloremque quas. Esse odit quis rerum, assumenda animi est qui blanditiis aut impedit ea et recusandae, similique, maxime tempore harum fugit molestias ab doloremque enim vitae dolor. Ea deserunt soluta asperiores commodi itaque similique sequi eius vitae ipsum dolores, ratione accusantium, earum libero adipisci. <br>	Exercitationem, officia maxime eaque architecto autem optio aliquam suscipit natus recusandae voluptas voluptates consequatur? Officia sed, nemo cum, autem facere tenetur consequatur ipsam, laborum eaque inventore vel dolorum. Minima, error exercitationem a, debitis, dolore tempora nobis omnis repellat fugit iure numquam amet tenetur deleniti harum unde inventore iusto est reprehenderit aperiam fuga perferendis? <br>	Eaque aliquid error repellendus earum necessitatibus placeat optio excepturi a eveniet, pariatur hic consectetur impedit doloribus dolorum dolores magnam ullam fuga eum odio ducimus, totam labore. Aut alias impedit, error maxime quis modi dolorum provident maiores necessitatibus sint culpa? Dignissimos obcaecati excepturi sint atque! Ipsa, <br>	delectus excepturi fugit ducimus unde similique mollitia aperiam tenetur tempore error illum eius ratione molestias amet eum eaque pariatur saepe totam libero assumenda? Dolorum tempora ad ullam in ea? <br>	Harum maxime quae culpa error accusantium? Dolores ipsam quo officiis pariatur minima non perferendis ut provident, illum impedit, debitis error rem adipisci ullam amet fugiat nulla mollitia delectus sapiente dicta consectetur architecto. Dolorum eligendi reiciendis itaque eveniet sint. <br>	Iure ratione totam placeat? Consequuntur aperiam at quasi sapiente illum eius voluptate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;laudantium.</p>
+
+	Put the following in the head section of you html document:
+	<pre>
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+		&lt;title&gt;HTML - Overview&lt;/title&gt;
+	&lt;/head&gt;
+	</pre>
+	<img src="Projects/companyPortfolio/static/img/about.jpg" alt="Picture of an office" width="800">
+	<!-- Entities: Group of characters to write any special characters. &nbsp; -->
+    <!-- <h2>HTML stands for Hyper Text Markup Language</h2>
+    <h3>HTML stands for Hyper Text Markup Language</h3>
+    <h4>HTML stands for Hyper Text Markup Language</h4>
+    <h5>HTML stands for Hyper Text Markup Language</h5>
+    <h6>HTML stands for Hyper Text Markup Language</h6> -->
+	Hyperlinks: 
+	<a href="firstProject/templates/aboutUs.html">Click here</a>
+	<a href="https://trainingbasket.in/">Click here</a>
+	<a href="https://trainingbasket.in/">
+		<img src="Projects/companyPortfolio/static/img/testimonials-bg.jpg" alt="" height="200">
+	</a>
+	<a href="../../../Desktop docs/Exception Handling in Python.pdf">Click here to see pdf</a> <br> <br> <br>
+	<hr>
+
+	<h2>Lists in HTML</h2>
+	<hr>
+
+	<!-- 3 types of list: Ordered list | Unordered list | Description list -->
+	<h3>Roll number wise list of students</h3>
+	<ol type="i">
+		<li>Akash</li>
+		<li>Bharat</li>
+		<li>Camilla</li>
+		<li>Daniel</li>
+		<li>Elephant</li>
+	</ol>
+
+	<h3>List of absentees</h3>
+	<ul type="square">
+		<li>Keshav</li>
+		<li>Tarun</li>
+		<li>Keshav</li>
+		<li>Priyanshu</li>
+		<li>Tarun</li>
+	</ul>
+
+	<h3>List of beverages</h3>
+	<dl>
+		<dt>Coffee</dt>
+		<dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sit pariatur assumenda earum atque quae temporibus explicabo? Repellat, quisquam dolores.</dd>
+
+		<dt>Tea</dt>
+		<dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dignissimos assumenda hic rem molestias, natus amet temporibus dolore nobis at.</dd>
+
+		<dt>Lassi</dt>
+		<dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam at consequatur in recusandae, iste consequuntur neque harum eius labore quae quo, dolor explicabo.</dd>
+
+		<dt>Mojito</dt>
+		<dd>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A maiores deleniti, rem, aspernatur voluptatum saepe doloribus, dolore optio hic consequatur consectetur debitis in iusto assumenda perferendis accusantium veniam autem doloremque! Iure!</dd>
+
+		<dt>Cold coffee</dt>
+		<dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iure ratione cum sunt repudiandae blanditiis voluptatibus eligendi nesciunt numquam, maxime animi!</dd>
+	</dl> 
+</body>
+</html>
+<!-- Strong tag | EM tag | -->
+<!-- Create a list of the steps taken for creating a Django Project -->
+
+<!-- Table | Forms -->
+<!-- 
+	Text Properties
+	Font properties
+	Background Properties
+	Display Properties
+	Position Properties
+	Animations
+ -->
