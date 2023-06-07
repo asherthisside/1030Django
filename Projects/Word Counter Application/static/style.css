@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(hotpink, dodgerblue);
+}
+
+textarea {
+    background: transparent;
+    border: solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+input[type=submit] {
+    padding: 10px 25px;
+    background: dodgerblue;
+}
+
+::placeholder {
+    color: black;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px 20px;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+}

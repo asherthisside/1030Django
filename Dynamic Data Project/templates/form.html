@@ -1,0 +1,14 @@
+<h1>Please enter details to login</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" id="" placeholder="Enter name">
+    <input type="password" name="userpass" id="" placeholder="Enter Password">
+    <input type="submit" value="Login">
+</form>
+
+<!-- Button click | Link follow | through URL  -->
+
+<h2>Results: </h2>
+<strong>Username: </strong> {{name}} <br>
+<strong>Password: </strong> {{pass}}

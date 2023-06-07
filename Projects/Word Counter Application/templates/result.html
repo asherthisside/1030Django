@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Results </title>
+</head>
+<body>
+    <div class="container">
+        <h1>Results here</h1>
+        <table>
+            <tr>
+                <th>Characters</th>
+                <td>{{characters}}</td>
+            </tr>
+            
+            <tr>
+                <th>Words</th>
+                <td>{{words}}</td>
+            </tr>
+            
+            <tr>
+                <th>Uppercase</th>
+                <td>{{uppercase}}</td>
+            </tr>
+            
+            <tr>
+                <th>Lowercase</th>
+                <td>{{lowercase}}</td>
+            </tr>
+           
+            <tr>
+                <th>Vowels</th>
+                <td>{{vowels}}</td>
+            </tr>
+            
+            <tr>
+                <th>Consonants</th>
+                <td>{{consonants}}</td>
+            </tr>
+            
+            <tr>
+                <th>Numerals</th>
+                <td>{{numerals}}</td>
+            </tr>
+            
+            <tr>
+                <th>Specials</th>
+                <td>{{special_chars}}</td>
+            </tr>
+            
+            <tr>
+                <th>Uppercase Characters</th>
+                <td>{{uppercase_chars}}</td>
+            </tr>
+            
+            
+        </table>
+    </div>
+</body>
+</html>
