@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">Enter Name: </label>
+        <input type="text" name="name" id=""> <br>
+
+        <label for="">Enter Deptt: </label>
+        <input type="text" name="deptt" id=""> <br>
+
+        <label for="">Enter salary: </label>
+        <input type="number" name="salary" id=""> <br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

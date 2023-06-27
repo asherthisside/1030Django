@@ -1,1 +1,30 @@
 This is explore.html for app2
+<br> 
+<a href="/two/add"><button>+ Add New</button></a>
+<br>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Date of Joining</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for employee in employees %}
+
+    <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.deptt }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>{{ employee.doj }}</td>
+        <td>
+            <a href="/two/update/{{ employee.id }}"><button>Update</button></a>
+            <a href="/two/delete/{{ employee.id }}"><button>Delete</button></a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
