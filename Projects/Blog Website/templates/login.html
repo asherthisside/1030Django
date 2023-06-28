@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block 'content' %}
+
+<div class="container mt-5">
+    <h1 class="text-center display-5">Enter details to Log in</h1>
+    <hr class="divider">
+    {% for message in messages %}
+    <div class="alert alert-info" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Username</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Enter username here" name="uname">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Password</label>
+                <input type="password" class="form-control" id="inputAddress" placeholder="Enter password here" name="password">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div>
+            Not a User yet? <a href="/signup">Create your account</a> here
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -113,6 +113,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/login'
+
 MEDIA_ROOT = os.path.join(BASE_DIR/'uploads')
 MEDIA_URL = '/uploads/'
 

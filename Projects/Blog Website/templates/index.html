@@ -7,6 +7,16 @@
 
   <div class="site-section">
     <div class="container">
+      {% for message in messages %}
+
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      {% endfor %}
       <div class="half-post-entry d-block d-lg-flex bg-light">
         <div class="img-bg" style="background-image: url('../static/images/big_img_1.jpg')"></div>
         <div class="contents">
@@ -70,7 +80,7 @@
             <p class="mb-3">{{ blog.description|truncatewords:25 }}</p>
             <div class="post-meta">
               <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">{{ blog.category }}</a></span>
-              <span class="date-read">{{ blog.created_at }}</span> 
+              <span class="date-read">{{ blog.created_at }}</span>
             </div>
           </div>
         </div>

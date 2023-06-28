@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Blog
-
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib import auth
 # Create your views here.
+
+@login_required(login_url='/login')
 def index(request):
     categories = Category.objects.all()
     blogs = Blog.objects.all()
@@ -11,6 +16,7 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
+@login_required(login_url='/login')
 def single(request, id):
     blog = Blog.objects.get(id=id)
     categories = Category.objects.all()
@@ -19,3 +25,74 @@ def single(request, id):
         'blog': blog
         }
     return render(request, 'blog-single.html', context)
+
+def signup(request):
+    # request POST 
+    if request.method == 'POST':
+        # Data collect from the form
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        uname = request.POST['uname']
+        pswd1 = request.POST['password1']
+        pswd2 = request.POST['password2']
+
+        # validations 
+            # Password should match 
+        if pswd1 == pswd2:
+            # Username should be unique 
+            if User.objects.filter(username=uname).exists():
+                # send a message that username already exists
+                messages.error(request, "Username already exists")
+                # Redirect to same page
+                return redirect("/signup")
+            
+            elif User.objects.filter(email=email).exists():
+                # Send a message that email is already in use
+                messages.error(request, "Email is already in use")
+                # Redirect to same page
+                return redirect("/signup")
+            
+            else: 
+                User.objects.create_user(first_name=fname, last_name=lname, email=email, username=uname, password=pswd1)
+                # Success message: Sign up successful
+                messages.success(request, "Account Created successfully")
+
+                # redirect to login page 
+                return redirect("/login")
+
+            # Mail ID should not be in use 
+
+            # Create User 
+
+        else:
+            # Message: Password not matching   
+            messages.error(request, "Passwords do not match") 
+            # Redirect to same page 
+            return redirect("/signup")
+
+    return render(request, 'signup.html')
+
+def login(request):
+    if request.method == 'POST':
+        # Data collect from the form 
+        uname = request.POST['uname']
+        pswd= request.POST['password']
+
+        # Authenticate the user whether it exists or not 
+        user = auth.authenticate(request, username=uname, password=pswd)
+
+        if user is not None:
+            auth.login(request, user=user)
+            messages.success(request, "Log in successful")
+            return redirect("/")
+        else:
+            messages.error(request, "Invalid credentials. Please try again.")
+            return redirect("/login")
+    else:
+        return render(request, 'login.html')
+    
+def logout(request):
+    messages.success(request, "Logged out Successfully")
+    auth.logout(request)
+    return redirect("/login")
