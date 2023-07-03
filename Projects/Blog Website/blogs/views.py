@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Category, Blog
+from .models import Category, Blog, Author
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -96,3 +96,19 @@ def logout(request):
     messages.success(request, "Logged out Successfully")
     auth.logout(request)
     return redirect("/login")
+
+def author_reg(request):
+    categories = Category.objects.all()
+    if request.method == 'POST':
+        # Fetch the category selected by user
+        user_cat = request.POST['category']
+        category = Category.objects.get(name=user_cat)
+
+        # create author object -> category (from form) | User (request.user)
+        new_author = Author(category=category, user=request.user)
+        new_author.save()
+
+        messages.success(request, "You have successfully registered as Author. Go to Dashboard for further details")
+
+        return redirect("/")
+    return render(request, 'author_reg.html', {'categories':categories})

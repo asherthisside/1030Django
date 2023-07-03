@@ -62,10 +62,14 @@
 
                     </div>
                     <div class="col-12 col-lg-6 ml-auto d-flex align-center">
-                        <div class="ml-md-auto">
+                        <div class="ml-md-auto mr-3">
                             {% if request.user.is_authenticated %}
                             <a href="/logout" class="btn btn-primary">Logout</a>
                             {% endif %}
+
+                        </div>
+                        <div class="ml-md-auto mr-3">
+                            <a href="/author_reg" class="btn btn-primary">Become an Author</a>
                         </div>
                         <form action="#" class="search-form d-inline-block">
 
