@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block 'content' %}
+
+<div class="container mt-5">
+    <h1 class="text-center display-5">Select one category that you write for</h1>
+    <hr class="divider">
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputAddress">Category: </label>
+                <select class="form-control" name="category" id="">
+                    {% for option in categories %}
+                    <option value="{{option.name}}">{{option.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+
+{% endblock %}
