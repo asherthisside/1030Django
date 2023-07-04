@@ -69,7 +69,11 @@
 
                         </div>
                         <div class="ml-md-auto mr-3">
+                            {% if request.user.author %}
+                            <a href="/author_dashboard" class="btn btn-primary">Go to Dashboard</a>
+                            {% else %}
                             <a href="/author_reg" class="btn btn-primary">Become an Author</a>
+                            {% endif %}
                         </div>
                         <form action="#" class="search-form d-inline-block">
 

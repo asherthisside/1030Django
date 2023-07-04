@@ -112,3 +112,7 @@ def author_reg(request):
 
         return redirect("/")
     return render(request, 'author_reg.html', {'categories':categories})
+
+def author_dashboard(request):
+    blogs = Blog.objects.all()
+    return render(request, 'author_dashboard.html', {'blogs':blogs})

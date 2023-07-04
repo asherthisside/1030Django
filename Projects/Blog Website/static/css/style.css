@@ -1295,3 +1295,18 @@ h1, h2, h3, h4, h5,
 
 .single-content {
   font-size: .9rem; }
+
+
+.author_blogs_table td, .author_blogs_table th {
+    padding: 1rem;
+    border: solid;
+}
+
+.blog_desc_table {
+  max-width: 400px;
+}
+
+.blog_title_table {
+  max-width: 200px;
+
+}
