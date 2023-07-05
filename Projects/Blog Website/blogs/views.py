@@ -114,5 +114,68 @@ def author_reg(request):
     return render(request, 'author_reg.html', {'categories':categories})
 
 def author_dashboard(request):
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.filter(author=request.user.author)
     return render(request, 'author_dashboard.html', {'blogs':blogs})
+
+def author_add_blog(request):
+    categories = Category.objects.all()
+    if request.method == 'POST':
+
+        # values fetch 
+        title = request.POST['title']
+        description = request.POST['description']
+        category = request.POST['category']
+        cat = Category.objects.get(name=category)
+        image = request.FILES['image']
+
+        print(title, description, category, image)
+
+        # Create a blog object 
+        new_blog = Blog(title=title, description=description, category=cat, author=request.user.author, image=image)
+
+        # save the object
+        new_blog.save()
+
+        return redirect("/author_dashboard")
+    return render(request, 'author_add_blog.html', {'categories':categories})
+
+def author_update_blog(request, pk):
+    # fetch the object that needs to be edited
+    blog = Blog.objects.get(id=pk)
+
+    if request.method == 'POST':
+        # values fetch 
+        title = request.POST['title']
+        description = request.POST['description']
+
+        # values overwrite
+        blog.title = title
+        blog.description = description
+
+        # save the object
+        blog.save()
+
+        # redirect to dashboard
+        return redirect('/author_dashboard')
+    return render(request, 'author_update_blog.html', {'blog':blog})
+
+def author_delete_blog(request, pk):
+    # fetch the blog
+    blog = Blog.objects.get(id=pk)
+    
+    # delete the blog 
+    blog.delete()
+
+    # redirect to the dashboard
+    return redirect('/author_dashboard')
+
+def category_wise(request, name):
+    # fetch blogs where category matches
+    category = Category.objects.get(name=name)
+    blogs = Blog.objects.filter(category=category)
+    
+    # fill the context with these blogs
+    context = {'blogs':blogs, 'category':category}
+
+    # render the page in that context
+    return render(request, 'category_wise.html', context)

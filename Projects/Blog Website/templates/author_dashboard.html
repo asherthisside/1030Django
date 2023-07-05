@@ -26,8 +26,8 @@
             <td>{{ blog.created_at }}</td>
             <td>{{ blog.category }}</td>
             <td>
-                <a href="/author_update_blog" class="m-2 btn btn-primary">Update</a>
-                <a href="/author_delete_blog" class="m-2 btn btn-danger">Delete</a>
+                <a href="/author_update_blog/{{blog.id}}" class="m-2 btn btn-primary">Update</a>
+                <a href="/author_delete_blog/{{blog.id}}" class="m-2 btn btn-danger">Delete</a>
             </td>
         </tr>
         {% endfor %}
