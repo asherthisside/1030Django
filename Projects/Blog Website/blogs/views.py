@@ -8,20 +8,12 @@ from django.contrib import auth
 
 @login_required(login_url='/login')
 def index(request):
-    categories = Category.objects.all()
-    blogs = Blog.objects.all()
-    context = {
-        'cats': categories, 
-        'blogs': blogs
-    }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
 @login_required(login_url='/login')
 def single(request, id):
     blog = Blog.objects.get(id=id)
-    categories = Category.objects.all()
     context = {
-        'cats': categories, 
         'blog': blog
         }
     return render(request, 'blog-single.html', context)
@@ -98,7 +90,6 @@ def logout(request):
     return redirect("/login")
 
 def author_reg(request):
-    categories = Category.objects.all()
     if request.method == 'POST':
         # Fetch the category selected by user
         user_cat = request.POST['category']
@@ -111,14 +102,13 @@ def author_reg(request):
         messages.success(request, "You have successfully registered as Author. Go to Dashboard for further details")
 
         return redirect("/")
-    return render(request, 'author_reg.html', {'categories':categories})
+    return render(request, 'author_reg.html')
 
 def author_dashboard(request):
     blogs = Blog.objects.filter(author=request.user.author)
     return render(request, 'author_dashboard.html', {'blogs':blogs})
 
 def author_add_blog(request):
-    categories = Category.objects.all()
     if request.method == 'POST':
 
         # values fetch 
@@ -137,7 +127,7 @@ def author_add_blog(request):
         new_blog.save()
 
         return redirect("/author_dashboard")
-    return render(request, 'author_add_blog.html', {'categories':categories})
+    return render(request, 'author_add_blog.html')
 
 def author_update_blog(request, pk):
     # fetch the object that needs to be edited
@@ -179,3 +169,7 @@ def category_wise(request, name):
 
     # render the page in that context
     return render(request, 'category_wise.html', context)
+
+# Context: 
+
+# Context processors: functions that return a dictionary

@@ -21,7 +21,7 @@
                 <h2><a href="blog-single.html">{{ blog.title }}</a></h2>
                 <p class="mb-3">{{ blog.description|truncatewords:35}}</p>
                 <div class="post-meta">
-                  <span class="d-block"><a href="#">{{ blog.author }}</a> in <a href="#">{{ blog.category }}</a></span>
+                  <span class="d-block"><a href="#">{{ blog.author }}</a> in <a href="/category/{{category.name}}">{{ blog.category }}</a></span>
                   <span class="date-read">{{ blog.created_at }}</span>
                 </div>
               </div>

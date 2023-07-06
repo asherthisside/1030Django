@@ -72,14 +72,14 @@
         <div class="section-title">
           <h2>Recent Blogs</h2>
         </div>
-        {% for blog in blogs reversed %}
+        {% for blog in all_blogs reversed %}
         <div class="post-entry-2 d-flex">
           <div class="thumbnail order-md-2" style="background-image: url({{blog.imageURL}})"></div>
           <div class="contents order-md-1 pl-0">
             <h2><a href="/post/{{blog.id}}">{{ blog.title }}</a></h2>
             <p class="mb-3">{{ blog.description|truncatewords:25 }}</p>
             <div class="post-meta">
-              <span class="d-block"><a href="#">{{ blog.author }}</a> in <a href="#">{{ blog.category }}</a></span>
+              <span class="d-block"><a href="#">{{ blog.author }}</a> in <a href="/category/{{blog.category.name}}">{{ blog.category }}</a></span>
               <span class="date-read">{{ blog.created_at }}</span>
             </div>
           </div>

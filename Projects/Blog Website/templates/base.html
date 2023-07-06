@@ -103,9 +103,9 @@
                         <div class="mr-auto">
                             <nav class="site-navigation position-relative text-right" role="navigation">
                                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
-                                    {% for category in cats %}
+                                    {% for category in all_categories %}
                                     <li>
-                                        <a href="categories.html" class="nav-link text-left">{{ category.name }}</a>
+                                        <a href="/category/{{category.name}}" class="nav-link text-left">{{ category.name }}</a>
                                     </li>
                                     {% endfor %}
                                 </ul>
