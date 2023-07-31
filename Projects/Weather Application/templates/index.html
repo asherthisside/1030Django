@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter City name</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the city name to search weather</h1>
+        <form action="/result" method="post">
+            {% csrf_token %}
+            <div class="input_field">
+                <input type="text" name="city">
+            </div>
+
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>
