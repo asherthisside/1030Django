@@ -5,6 +5,5 @@ urlpatterns = [
     path('', views.home),
     path('signup', views.signup),
     path('dashboard', views.dashboard),
-    path('employees', views.employees),
-    path('tasks', views.tasks),
+    path('mark-completed/<int:id>/', views.mark_as_completed),
 ]

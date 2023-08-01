@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Employee, Task
+from datetime import datetime
 
 # Create your views here.
 def home(request):
@@ -10,34 +11,23 @@ def signup(request):
 
 def dashboard(request):
     user = request.user
-    if user.is_superuser:
-        print("You are an admin")
-        employees = Employee.objects.all()
-        tasks = Task.objects.all()
-        completed = Task.objects.filter(doc__isnull=False)
-        pending = Task.objects.filter(doc__isnull=True)
+    # completed = Task.objects.filter(doc__isnull=False)
+    # pending = Task.objects.filter(doc__isnull=True)
+    employee = user.employee
+    pending_tasks = Task.objects.filter(employee=employee, doc__isnull=True) 
+    completed_tasks = Task.objects.filter(employee=employee, doc__isnull=False) 
 
-        context = {
-            'emps': employees,
-            'tasks': tasks,
-            'completed': completed,
-            'pending': pending
-        }
+    context = {
+        'emp': employee,
+        'completed': completed_tasks,
+        'pending': pending_tasks,
+    }
+    
+    return render(request, 'emp_dash.html', context)
 
-    else: 
-        employee = user.employee
-        tasks = Task.objects.filter(employee=employee) 
-
-        context = {
-            'emp': employee,
-            'tasks': tasks,
-        }
-        
-        print("You are an employee")
-    return render(request, 'index.html', context)
-
-def employees(request):
-    return render(request, 'docs.html')
-
-def tasks(request):
-    return render(request, 'orders.html')
+def mark_as_completed(request, id):
+    task = Task.objects.get(id=id)
+    task.doc = datetime.now()
+    task.save()
+    print(task)
+    return redirect("/dashboard")

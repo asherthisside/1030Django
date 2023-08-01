@@ -17,10 +17,10 @@ class Task(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
     deadline = models.DateTimeField()
-    attachments = models.ImageField(null=True)
+    attachments = models.ImageField(null=True, blank=True)
     employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True)
     doa = models.DateTimeField(auto_now_add=True)
-    doc = models.DateTimeField(null=True)
+    doc = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.title + ". Assigned to: " + self.employee.name
